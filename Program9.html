@@ -1,0 +1,61 @@
+<html ng-app="employeeApp">
+    <head>
+      <link rel="stylesheet" href="style.css">
+    <title>AngularJS Employee Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="employeeController">
+    <div class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/Program1.html">Program 1</a></li>
+          <li><a href="/Program2.html">Program 2</a></li>
+          <li><a href="/Program3.html">Program 3</a></li>
+          <li><a href="/Program4.html">Program 4</a></li>
+          <li><a href="/program5.html">Program 5</a></li>
+          <li><a href="/program6.html">Program 6</a></li>
+          <li><a href="/Program7.html">Program 7</a></li>
+          <li><a href="/Program8.html">Program 8</a></li>
+          <li><a href="/Program9.html">Program 9</a></li>
+          <li><a href="/Program10.html">Program 10</a></li>
+          <li><a href="/Program11.html">Program 11</a></li>
+          <li><a href="/Program12.html">Program 12</a></li>
+        </ul>
+    </div>
+    <center>
+      <h1>Program 9</h1>
+          <h1>
+            Create an AngularJS application that displays a list of employees and their salaries. Allow users 
+            to searchfor employees by name and salary. Note: Employee details may be included in the program.
+      
+          </h1>
+      </center>
+    <h2>Employee List</h2>
+    Search by Name:
+    <input type="text" ng-model="searchName" />
+    Search by Salary:
+    <input type="number" ng-model="searchSalary" />
+    <ul>
+      <li
+        ng-repeat="employee in employees | filter: {name: searchName, salary:
+searchSalary}"
+      >
+        {{ employee.name }} - Salary: Rs{{ employee.salary }}
+      </li>
+    </ul>
+    <script>
+      var app = angular.module("employeeApp", []);
+      app.controller("employeeController", function ($scope) {
+        $scope.employees = [
+          { name: "Ram", salary: 50000 },
+          { name: "abi", salary: 60000 },
+          { name: "sam", salary: 75000 },
+          { name: "raj", salary: 55000 },
+        ];
+
+        $scope.searchName = "";
+        $scope.searchSalary = "";
+      });
+    </script>
+  </body>
+</html>

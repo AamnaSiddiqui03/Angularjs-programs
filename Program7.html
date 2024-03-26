@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html ng-app="crudApp">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>AngularJS CRUD Application</title>
+  <style>
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    button {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="crudCtrl" id="userList">
+  <div class="navbar">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/Program1.html">Program 1</a></li>
+      <li><a href="/Program2.html">Program 2</a></li>
+      <li><a href="/Program3.html">Program 3</a></li>
+      <li><a href="/Program4.html">Program 4</a></li>
+      <li><a href="/program5.html">Program 5</a></li>
+      <li><a href="/program6.html">Program 6</a></li>
+      <li><a href="/Program7.html">Program 7</a></li>
+      <li><a href="/Program8.html">Program 8</a></li>
+      <li><a href="/Program9.html">Program 9</a></li>
+      <li><a href="/Program10.html">Program 10</a></li>
+      <li><a href="/Program11.html">Program 11</a></li>
+      <li><a href="/Program12.html">Program 12</a></li>
+    </ul>
+</div>
+<center>
+  <h1>Program 7</h1>
+      <h1>
+        Write an AngularJS program to create a simple CRUD application (Create, Read, Update, and 
+        Delete) formanaging users.
+  
+      </h1>
+  </center>
+  <h2>Users List</h2>
+
+  <form ng-submit="addUser()">
+    <label for="userName">Name:</label>
+    <input type="text" id="userName" ng-model="newUser.name" required>
+
+    <label for="userAge">Age:</label>
+    <input type="number" id="userAge" ng-model="newUser.age" required>
+
+    <label for="userEmail">Email:</label>
+    <input type="email" id="userEmail" ng-model="newUser.email" required>
+
+    <button type="submit">Add User</button>
+  </form>
+
+  <table ng-show="users.length > 0">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <tr ng-repeat="user in users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button ng-click="editUser(user)">Edit</button>
+        <button ng-click="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  var app = angular.module('crudApp', []);
+
+  app.controller('crudCtrl', function ($scope) {
+    $scope.users = [
+      { name: 'Rashmi', age: '39', email: 'rash@rnsit.co.in' },
+      { name: 'Sandeep', age: '40', email: 'san@company.com' }
+    ];
+
+    $scope.newUser = {};
+
+    $scope.addUser = function () {
+      if ($scope.newUser.name && $scope.newUser.age && $scope.newUser.email) {
+        $scope.users.push(angular.copy($scope.newUser));
+        $scope.newUser = {};
+      }
+    };
+
+
+
+    $scope.editUser = function (user) {
+      var editedName = prompt("Edit user's name:", user.name);
+      var editedAge = prompt("Edit user's age:", user.age);
+      var editedEmail = prompt("Edit user's email:", user.email);
+
+      if (editedName !== null && editedAge !== null && editedEmail !== null) {
+        user.name = editedName;
+        user.age = editedAge;
+        user.email = editedEmail;
+      }
+    };
+
+
+
+    $scope.deleteUser = function (user) {
+      var confirmDelete = confirm("Are you sure you want to delete this user?");
+      if (confirmDelete) {
+        var index = $scope.users.indexOf(user); //indexOf(user)
+        $scope.users.splice(index, 1);
+      }
+    };
+  });
+</script>
+
+</body>
+</html>

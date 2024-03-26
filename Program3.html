@@ -1,0 +1,78 @@
+<html ng-app="mycalculator">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Program 3</title>
+        <script src="library.js"></script>
+
+    </head>
+ 
+        <body ng-controller="calController"  >
+            <div class="navbar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Program1.html">Program 1</a></li>
+                    <li><a href="/Program2.html">Program 2</a></li>
+                    <li><a href="/Program3.html">Program 3</a></li>
+                    <li><a href="/Program4.html">Program 4</a></li>
+                    <li><a href="/program5.html">Program 5</a></li>
+                    <li><a href="/program6.html">Program 6</a></li>
+                    <li><a href="/Program7.html">Program 7</a></li>
+                    <li><a href="/Program8.html">Program 8</a></li>
+                    <li><a href="/Program9.html">Program 9</a></li>
+                    <li><a href="/Program10.html">Program 10</a></li>
+                    <li><a href="/Program11.html">Program 11</a></li>
+                    <li><a href="/Program12.html">Program 12</a></li>
+                </ul>
+            </div>
+        <center>
+            <h1>Program 3</h1>
+            <h1>Develop a simple Angular JS calculator application that can perform basic mathematical
+                operations(addition, subtraction, multiplication, division) based on user input.
+            </h1>
+            <hr>
+        </center>
+
+            <label for="numbers">Enter Number 1: </label>
+            <input type="number" ng-model="number1">
+            <label for="numbers">Enter Number 2:</label>
+            <input type="number" ng-model="number2">
+            
+            
+            <h2>Select Operator</h2>
+            <select ng-model="operator">
+            <option value="+">Add</option>
+            <option value="-">Subtract</option>
+            <option value="*">Multiply</option>
+            <option value="/">Divide</option>
+            </select>
+
+
+            <button ng-click="calculate()">Calculate</button>
+            <p ng-show="result !== undefined"> Result: {{result}}</p>
+        </body>
+    
+
+    <script>
+        var app= angular.module("mycalculator", []);
+        app.controller("calController", function($scope){
+            //deifne your parameters
+
+            $scope.calculate = function(){
+                switch($scope.operator){
+                    case '+' : $scope.result= $scope.number1+$scope.number2;
+                               break;
+                    case '-' : $scope.result= $scope.number1-$scope.number2;
+                               break;
+                    case '*' : $scope.result= $scope.number1*$scope.number2;
+                               break;
+                    case '/' : if($scope.number2===0){
+                        $scope.result="Cannot devide by 0";
+                    }else{
+                        $scope.result= $scope.number1/$scope.number2;
+                    }
+                    break;
+                }
+            }
+        })
+    </script>
+</html>

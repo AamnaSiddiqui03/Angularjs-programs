@@ -1,0 +1,88 @@
+<html ng-app="myApp">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <!-- two things come in head -->
+    <title>Program 2</title>
+    <script src="library.js"></script>
+  </head>
+
+  <style>
+    body {
+      background-color: rgb(246, 252, 255);
+      color: rgb(12, 56, 61);
+    }
+  </style>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Program1.html">Program 1</a></li>
+        <li><a href="/Program2.html">Program 2</a></li>
+        <li><a href="/Program3.html">Program 3</a></li>
+        <li><a href="/Program4.html">Program 4</a></li>
+        <li><a href="/program5.html">Program 5</a></li>
+        <li><a href="/program6.html">Program 6</a></li>
+        <li><a href="/Program7.html">Program 7</a></li>
+        <li><a href="/Program8.html">Program 8</a></li>
+        <li><a href="/Program9.html">Program 9</a></li>
+        <li><a href="/Program10.html">Program 10</a></li>
+        <li><a href="/Program11.html">Program 11</a></li>
+        <li><a href="/Program12.html">Program 12</a></li>
+      </ul>
+  </div>
+    <center>
+        <!-- two things come in first center -->
+      <h1>Program 2</h1>
+      <h1>
+        Develop an Angular js application that displays a list of shopping
+        items. Allow users to add and remove items from the list using
+        directives and controllers. Note the default values of items maybe
+        included in the program
+      </h1>
+    </center>
+
+    <hr>
+
+    <body ng-controller="MyController">
+
+        <h1>Shopping list</h1>
+        <label for="itemInput">Enter products in the list</label>
+        <input type="text" ng-model="newItem"> 
+        <button ng-click="addItem()"> add Item</button>
+
+        <table>
+            <tr ng-repeat="item in itemList">
+                <td>{{item}}</td>
+                <td><button ng-click="removeItem($index)">Remove</button></td>
+            </tr>
+        </table>
+
+
+<script>
+    var app= angular.module("myApp",[]);
+    app.controller('MyController', ($scope)=>{
+        //first i will have an array
+        $scope.itemList=[];
+        //creating default list values
+        $scope.itemList=["Apple", "Orange", "Mango" , "Banana"];
+
+        //now creating both functions addItem and Remove
+        $scope.addItem = function(){
+            if($scope.newItem){
+                $scope.itemList.push($scope.newItem); //function finished
+
+                $scope.newItem='';
+            }
+        };
+
+        $scope.removeItem= function($index){
+            $scope.itemList.splice($index);
+        }
+    })
+</script>
+        
+    </body>
+
+
+  </body>
+</html>

@@ -1,0 +1,77 @@
+:root{
+    --mygreen:rgb(7, 45, 50);
+}
+
+body{
+    margin: 0;
+    background-color: rgb(246, 252, 255);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: var(--mygreen);;
+    height: 74px;
+}
+.navbar ul{
+    color: white;
+    display: flex;
+    gap: 48px;
+    
+    
+}
+.navbar li{
+    list-style: none;
+}
+
+.navbar li:hover{
+   transform: scale(1.2);
+   
+}
+.navbar li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.container{
+    width: 400px;
+    margin:auto;
+    margin-top: 100px; 
+    text-align: center;
+}
+.getStarted{
+    display: flex;
+    justify-content: center;
+
+}
+.startButton{
+    width: 400px;
+    padding: 16px 94px;
+    border: none;
+    background-color: var(--mygreen);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.startButton:hover{
+    transform: scale(1.04);
+}
+
+.footcontrol{
+    display: flex;
+    padding: 0px 100px;
+    
+    justify-content: space-between;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 0px;
+    text-align: center;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="dateApp">
+<head>
+ <title>Program 12</title>
+ <link rel="stylesheet" href="style.css">
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="dateController">
+    <div class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/Program1.html">Program 1</a></li>
+          <li><a href="/Program2.html">Program 2</a></li>
+          <li><a href="/Program3.html">Program 3</a></li>
+          <li><a href="/Program4.html">Program 4</a></li>
+          <li><a href="/program5.html">Program 5</a></li>
+          <li><a href="/program6.html">Program 6</a></li>
+          <li><a href="/Program7.html">Program 7</a></li>
+          <li><a href="/Program8.html">Program 8</a></li>
+          <li><a href="/Program9.html">Program 9</a></li>
+          <li><a href="/Program10.html">Program 10</a></li>
+          <li><a href="/Program11.html">Program 11</a></li>
+          <li><a href="/Program12.html">Program 12</a></li>
+        </ul>
+    </div>
+    <center>
+        <h1>Program 12</h1>
+            <h1>
+                Create an AngularJS application that displays the date by using date filter parameters
+            </h1>
+        </center>
+
+ <h2>Date Display</h2>
+ <!-- Display the current date with various filter parameters -->
+ <p>Default Format: {{ currentDate | date }}</p>
+ <p>Custom Format (yyyy-MM-dd): {{ currentDate | date:'yyyy-MM-dd' }}</p>
+ <p>Short Date: {{ currentDate | date:'shortDate' }}</p>
+ <p>Full Date: {{ currentDate | date:'fullDate' }}</p>
+ <script>
+ var app = angular.module('dateApp', []);
+ app.controller('dateController', function ($scope) {
+ $scope.currentDate = new Date();
+ });
+ </script>
+</body>
+</html>

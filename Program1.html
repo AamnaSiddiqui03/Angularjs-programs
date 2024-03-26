@@ -1,0 +1,88 @@
+<html ng-app="nameApp">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Program 1</title>
+    <script src="library.js"></script>
+  </head>
+<style>
+
+    input{
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+    button{
+        padding: 15px;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: rgb(182, 182, 219);
+    }
+</style>
+  <body>
+    <div class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Program1.html">Program 1</a></li>
+            <li><a href="/Program2.html">Program 2</a></li>
+            <li><a href="/Program3.html">Program 3</a></li>
+            <li><a href="/Program4.html">Program 4</a></li>
+            <li><a href="/program5.html">Program 5</a></li>
+            <li><a href="/program6.html">Program 6</a></li>
+            <li><a href="/Program7.html">Program 7</a></li>
+            <li><a href="/Program8.html">Program 8</a></li>
+            <li><a href="/Program9.html">Program 9</a></li>
+            <li><a href="/Program10.html">Program 10</a></li>
+            <li><a href="/Program11.html">Program 11</a></li>
+            <li><a href="/Program12.html">Program 12</a></li>
+        </ul>
+    </div>
+    <center>
+    <h1>Program 1</h1>
+        <h1>
+            Develop Angular JS program that allows user to input their first name and last name and 
+            display their fullname. Note: The default values for first name and last name may be included in 
+            the program.
+    
+        </h1>
+    </center>
+    <hr>
+    <!-- here we want to connect it with the javascript -->
+    <div ng-controller="nameCtrl">
+        <center>
+            <div>
+                <h1>First Name</h1>
+                <input type="text" ng-model="firstname" placeholder="Enter your first name">
+            </div>
+            <div>
+                <h2>
+                    <h1>last name</h1>
+                    <input type="text" ng-model="lastname" placeholder="Enter you last name">
+                </h2>
+            </div>
+            <br>
+            <br>
+            <button ng-click="displayFullName()">Display Full Name</button>
+
+            <!-- Display the full name -->
+            <h1>Full Name is: {{ fullName }}</h1>
+        </center>
+    </div>
+  </body>
+
+
+
+  <script>
+    var app=angular.module('nameApp' , []);
+    app.controller('nameCtrl',  function($scope){
+        $scope.firstname= "Aamna";
+        $scope.lastname="Siddiqui";
+
+        $scope.displayFullName = function(){
+            $scope.fullName= $scope.firstname + ' ' + $scope.lastname;
+        }
+        
+    })
+
+  </script>
+</html>

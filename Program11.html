@@ -1,0 +1,56 @@
+<html ng-app="studentApp">
+    <head>
+        <title>Program 11</title>
+       <link rel="stylesheet" href="style.css">
+     </head>
+<script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<body ng-controller="studentController">
+    <div class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/Program1.html">Program 1</a></li>
+          <li><a href="/Program2.html">Program 2</a></li>
+          <li><a href="/Program3.html">Program 3</a></li>
+          <li><a href="/Program4.html">Program 4</a></li>
+          <li><a href="/program5.html">Program 5</a></li>
+          <li><a href="/program6.html">Program 6</a></li>
+          <li><a href="/Program7.html">Program 7</a></li>
+          <li><a href="/Program8.html">Program 8</a></li>
+          <li><a href="/Program9.html">Program 9</a></li>
+          <li><a href="/Program10.html">Program 10</a></li>
+          <li><a href="/Program11.html">Program 11</a></li>
+          <li><a href="/Program12.html">Program 12</a></li>
+        </ul>
+    </div>
+    <center>
+        <h1>Program 11</h1>
+            <h1>
+                Create Angular JS application to convert student details to uppercase using angular filters. Note: 
+                The default details of students may be included in the program.
+            </h1>
+        </center>
+
+<h2>Student Names</h2>
+<!-- Display the original student names -->
+<h3>Original Names:</h3>
+<ul>
+<li ng-repeat="name in names">
+{{ name }}
+ </li>
+ </ul>
+ <!-- Display the student names in uppercase using filters -->
+ <h3>Names in Uppercase:</h3>
+ <ul>
+ <li ng-repeat="name in names">
+ {{ name | uppercase }}
+ </li>
+ </ul>
+ <script>
+ var app = angular.module('studentApp', []);
+ app.controller('studentController', function ($scope) {
+ $scope.names = ['Raj', 'Ram', 'Sam'];
+ });
+ </script>
+</body>
+</html>

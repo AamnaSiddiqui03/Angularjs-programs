@@ -1,0 +1,105 @@
+<html ng-app="todoApp">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>AngularJS Todo List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-controller="todoController">
+    <div class="navbar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Program1.html">Program 1</a></li>
+        <li><a href="/Program2.html">Program 2</a></li>
+        <li><a href="/Program3.html">Program 3</a></li>
+        <li><a href="/Program4.html">Program 4</a></li>
+        <li><a href="/program5.html">Program 5</a></li>
+        <li><a href="/program6.html">Program 6</a></li>
+        <li><a href="/Program7.html">Program 7</a></li>
+        <li><a href="/Program8.html">Program 8</a></li>
+        <li><a href="/Program9.html">Program 9</a></li>
+        <li><a href="/Program10.html">Program 10</a></li>
+        <li><a href="/Program11.html">Program 11</a></li>
+        <li><a href="/Program12.html">Program 12</a></li>
+      </ul>
+  </div>
+    <center>
+      <h1>Program-6</h1>
+      <h1>
+        Develop an AngularJS program to create a simple to-do list application.
+        Allow users to add, edit, and deletetasks.Note: The default values for
+        tasks may be included in the program.
+      </h1>
+    </center>
+    <hr />
+
+    <h1>Todo List</h1>
+    <!-- Form for adding a new task -->
+    <form ng-submit="addTask()">
+      Task:
+      <input type="text" ng-model="newTask" required />
+      <button type="submit">Add Task</button>
+    </form>
+    <br />
+    <!-- Table to display task information -->
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="task in tasks">
+          <td>{{ task }}</td>
+          <td>
+            <button ng-click="editTask($index)">Edit</button>
+            <button ng-click="deleteTask($index)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Edit Task Model -->
+    <!-- <div ng-if="editingTaskIndex !== null">
+      <h2>Edit Task</h2>
+      Task:
+      <input type="text" ng-model="tasks" required />
+      <br />
+      <button ng-click="saveEdit()">Save</button>
+      <button ng-click="cancelEdit()">Cancel</button>
+    </div> -->
+    <script>
+      var app = angular.module("todoApp", []);
+      app.controller("todoController", function ($scope) {
+        $scope.tasks = ["Task 1", "Task 2", "Task 3"];
+        $scope.newTask = "";
+        // $scope.editingTaskIndex = null;
+
+        $scope.addTask = function () {
+          $scope.tasks.push($scope.newTask);
+          $scope.newTask = "";
+        };
+
+
+
+
+        $scope.editTask = function (index) {
+          // var a="3";
+          // Prompt for updated task with validation
+          var updatedTask = prompt("Enter updated task:");
+          // Check if the user pressed cancel
+          if (updatedTask !== null) {
+            // Update the task
+            $scope.tasks.splice(index, 1, updatedTask);
+          }
+        };
+
+
+
+
+        $scope.deleteTask = function (index) {
+          $scope.tasks.splice(index, 1);
+        };
+      });
+    </script>
+  </body>
+</html>

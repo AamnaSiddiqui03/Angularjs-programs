@@ -1,0 +1,64 @@
+<html ng-app="itemApp">
+  <head>
+     <title>Program 10</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <body ng-controller="itemController">
+    <div class="navbar">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/Program1.html">Program 1</a></li>
+        <li><a href="/Program2.html">Program 2</a></li>
+        <li><a href="/Program3.html">Program 3</a></li>
+        <li><a href="/Program4.html">Program 4</a></li>
+        <li><a href="/program5.html">Program 5</a></li>
+        <li><a href="/program6.html">Program 6</a></li>
+        <li><a href="/Program7.html">Program 7</a></li>
+        <li><a href="/Program8.html">Program 8</a></li>
+        <li><a href="/Program9.html">Program 9</a></li>
+        <li><a href="/Program10.html">Program 10</a></li>
+        <li><a href="/Program11.html">Program 11</a></li>
+        <li><a href="/Program12.html">Program 12</a></li>
+      </ul>
+  </div>
+  <center>
+    <h1>Program 10</h1>
+        <h1>
+          Create Angular JS application that allows users to maintain a collection of items. The 
+          application should display the current total number of items, and this count should automatically 
+          update as items are added or removed. Users should be able to add items to the collection and 
+          remove them as needed. Note: The default values for items may be included in the program.
+          
+        </h1>
+    </center>
+    <h2>Item Collection</h2>
+    Add New Item:
+    <input type="text" ng-model="newItem" />
+    <button ng-click="addItem()">Add Item</button>
+    <ul>
+      <li ng-repeat="item in items track by $index">
+        {{ item }}
+        <button ng-click="removeItem($index)">Remove</button>
+      </li>
+    </ul>
+    <p>Total Items: {{ items.length }}</p>
+    <script>
+      var app = angular.module("itemApp", []);
+      app.controller("itemController", function ($scope) {
+        $scope.items = ["Item 1", "Item 2", "Item 3"]; // Default items
+        $scope.newItem = "";
+        $scope.addItem = function () {
+          if ($scope.newItem) {
+            $scope.items.push($scope.newItem);
+            $scope.newItem = ""; // Clear the input field
+          }
+        };
+        $scope.removeItem = function (index) {
+          $scope.items.splice(index, 1);
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<html ng-app="mathApp">
+<head>
+  <title>AngularJS Math Operations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="mathController">
+    <div class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/Program1.html">Program 1</a></li>
+          <li><a href="/Program2.html">Program 2</a></li>
+          <li><a href="/Program3.html">Program 3</a></li>
+          <li><a href="/Program4.html">Program 4</a></li>
+          <li><a href="/program5.html">Program 5</a></li>
+          <li><a href="/program6.html">Program 6</a></li>
+          <li><a href="/Program7.html">Program 7</a></li>
+          <li><a href="/Program8.html">Program 8</a></li>
+          <li><a href="/Program9.html">Program 9</a></li>
+          <li><a href="/Program10.html">Program 10</a></li>
+          <li><a href="/Program11.html">Program 11</a></li>
+          <li><a href="/Program12.html">Program 12</a></li>
+        </ul>
+    </div>
+    <center>
+        <h1>Program-4</h1>
+        <h1>Write an Angular JS application that can calculate factorial and compute square based on given 
+            user input.
+        </h1>
+        </center>
+            <hr>
+  Enter a Number:
+  <input type="number" ng-model="inputNumber" />
+  <button ng-click="calculateFactorial()">Calculate Factorial</button>
+  <button ng-click="calculateSquare()">Calculate Square</button>
+
+  <p >Factorial: {{ factorialResult }}</p>
+  <p >Square: {{ squareResult }}</p>
+  <script>
+    var app = angular.module('mathApp', []);
+    app.controller('mathController', function ($scope) {
+      $scope.calculateFactorial = function () {
+        if ($scope.inputNumber >= 0) {
+          $scope.factorialResult = factorial($scope.inputNumber);
+        } else {
+          $scope.factorialResult = 'Cannot calculate factorial for negative numbers';
+        }
+      };
+
+      $scope.calculateSquare = function () {
+        $scope.squareResult = $scope.inputNumber * $scope.inputNumber;
+      };
+
+      function factorial(n) {
+        if (n == 0 || n == 1) {
+          return 1;
+        } else {
+          return n * factorial(n - 1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
